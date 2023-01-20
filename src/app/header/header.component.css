@@ -46,7 +46,7 @@ header ul li a {
 }
 header ul li a:hover::after {
    content:'';
-   background: #f9b205;
+   background: #000;
    height: 9px;
    position: absolute;
    left: 1px;
