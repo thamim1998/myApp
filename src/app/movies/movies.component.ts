@@ -13,7 +13,7 @@ export class MoviesComponent {
   allmovies: any;
   notEmptyPost = true;
   notscrolly = true;
-  _value = 1;
+  _value = 500;
 
   ngOnInit() {
     this.loadMovies();
@@ -27,7 +27,6 @@ export class MoviesComponent {
   }
 
   onScroll() {
-    console.log("scrolled");
     this._value++;
 
     // add newly fetched posts to the existing post
@@ -37,9 +36,9 @@ export class MoviesComponent {
     this.http.get(url).subscribe((data: any) => {
       this.allmovies = this.allmovies.concat(data);
       this.notscrolly = true;
+      if (data.length === 0) {
+        this.notEmptyPost = false;
+      }
     });
-    if (this._value > 500) {
-      this.notEmptyPost = false;
-    }
   }
 }
