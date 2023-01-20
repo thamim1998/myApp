@@ -13,7 +13,7 @@ export class MoviesComponent {
   allmovies: any;
   notEmptyPost = true;
   notscrolly = true;
-  _value = 500;
+  _value = 1;
 
   ngOnInit() {
     this.loadMovies();
