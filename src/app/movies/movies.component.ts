@@ -29,17 +29,17 @@ export class MoviesComponent {
   onScroll() {
     console.log("scrolled");
     this._value++;
-    console.log(this._value);
 
     // add newly fetched posts to the existing post
 
     const url = `http://localhost:3000/api/movies/${this._value}`;
 
-
     this.http.get(url).subscribe((data: any) => {
       this.allmovies = this.allmovies.concat(data);
-      console.log(this.allmovies, "scrolled");
       this.notscrolly = true;
     });
+    if (this._value > 500) {
+      this.notEmptyPost = false;
+    }
   }
 }
